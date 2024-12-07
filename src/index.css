@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: "open-sans-semibold";
-  src: url("fonts/OpenSans-SemiBold.ttf");
+  src: url("./../public/fonts/OpenSans-SemiBold.ttf");
 }
 
 @font-face {
@@ -14,5 +14,5 @@
 
 @font-face {
   font-family: "open-sans-regular";
-  src: url("fonts/OpenSans-Regular.ttf");
+  src: url("./../public/fonts/OpenSans-Regular.ttf");
 }
