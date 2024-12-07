@@ -1,0 +1,35 @@
+import { useEffect, useRef } from "react";
+import UiIcons from "./UiIcons";
+const sortOptions = ["title", "text", "date"];
+
+export default function SortModal({ onSort }) {
+  const modalEl = useRef(null);
+
+  useEffect(function () {
+    setTimeout(() =>
+      modalEl.current.classList.remove("translate-y-10", "opacity-0")
+    );
+  }, []);
+
+  return (
+    <div
+      ref={modalEl}
+      className="flex flex-col absolute top-16 translate-y-10 opacity-0
+     bg-zinc-900/50 w-full rounded-3xl z-50 shadow-lg overflow-hidden
+      transition-all duration-300"
+    >
+      {sortOptions.map((sort, i) => (
+        <button
+          className="flex items-center gap-[6px] font-open-sans-semibold bg-inherit
+           hover:bg-zinc-800 hover:text-rose-600 transition-colors duration-300 w-full p-3"
+          key={i}
+          value={sort}
+          onClick={(e) => onSort(e.target?.value)}
+        >
+          {UiIcons[sort]("size-6")}
+          By {sort}
+        </button>
+      ))}
+    </div>
+  );
+}
