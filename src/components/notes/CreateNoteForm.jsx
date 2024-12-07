@@ -37,7 +37,7 @@ export default function CreateNoteForm({ onCloseNewNote, onAdd, noteColor }) {
     e.preventDefault();
     if (!text && !title) return;
 
-    const id = crypto.randomUUID();
+    const id = Date.now();
     const newNote = {
       date: formatedDate,
       title,
@@ -61,11 +61,11 @@ export default function CreateNoteForm({ onCloseNewNote, onAdd, noteColor }) {
         onSubmit={(e) => handleSubmit(e)}
         className={`${noteColor} p-5 flex flex-col gap-5 rounded-xl 
         shadow-xl hover:shadow-2xl transition-all duration-300 
-        opacity-95 w-auto`}
+        opacity-95 w-auto text-sm md:text-base`}
       >
-        <div className="flex justify-between text-sm font-open-sans-semibold items-center">
+        <div className="flex justify-between text-xs sm:text-sm font-open-sans-semibold items-center">
           <span className="flex items-center gap-1">
-            {UiIcons.date()}
+            {UiIcons.date("size-4 sm:size-6")}
             {formatedDate}
           </span>
 
@@ -78,8 +78,8 @@ export default function CreateNoteForm({ onCloseNewNote, onAdd, noteColor }) {
           value={title}
           placeholder="Title"
           onChange={(e) => setTitle(e.target.value)}
-          className="bg-inherit outline-none 
-          placeholder:text-zinc-200 text-zinc-50 text-2xl"
+          className="bg-transparent outline-none 
+          placeholder:text-zinc-200 text-zinc-50 text-lg md:text-2xl"
         />
 
         <textarea
@@ -89,8 +89,15 @@ export default function CreateNoteForm({ onCloseNewNote, onAdd, noteColor }) {
           onKeyDown={(e) => handleKeyDown(e)}
           onInput={handleInputLength}
           style={{ width: `${width}px`, height: `${height}px` }}
-          className="bg-inherit outline-none w-auto resize-none overflow-hidden"
+          className="bg-transparent outline-none w-auto resize-none overflow-hidden text-sm md:text-base"
         ></textarea>
+
+        <button
+          type="submit"
+          className="focus:bg-black transition-all duration-300 md:hidden"
+        >
+          Add Note
+        </button>
       </form>
     </div>
   );

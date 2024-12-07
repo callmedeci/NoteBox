@@ -140,7 +140,7 @@ export default function App() {
             borderRadius="100px"
             padding="10px"
             onClick={handleToggleNewNote}
-            icon={UiIcons.plus()}
+            icon={UiIcons.plus("size-5 md:size-6")}
           />
 
           {isOpenNoteColor && (
@@ -178,7 +178,7 @@ function Search({ notes, query, setQuery }) {
       className="px-5 py-3 rounded-2xl shadow bg-zinc-900/50 outline-none 
       focus:-translate-y-1 focus:shadow-xl transition-all duration-300 
     disabled:placeholder:text-zinc-600
-      disabled:opacity-50"
+      disabled:opacity-50 w-[60%] md:w-max text-xs sm:text-sm md:text-base"
     />
   );
 }
@@ -192,8 +192,10 @@ Search.propTypes = {
 function Icon() {
   return (
     <div className="flex items-center gap-1">
-      {UiIcons.inbox("size-10 text-rose-700")}
-      <span className="font-open-sans-semibold text-lg">Notepad</span>
+      {UiIcons.inbox("size-7 md:size-10 text-rose-700")}
+      <span className="font-open-sans-semibold text-sm sm:text-base md:text-lg">
+        Notepad
+      </span>
     </div>
   );
 }
@@ -203,7 +205,7 @@ function Sort({ onSort, isOpen, onToggle }) {
     <div className="relative flex flex-col items-center justify-center">
       <Button
         text="SORT BY"
-        icon={UiIcons.sort()}
+        icon={UiIcons.sort("size-4 md:size-6")}
         padding="15px"
         borderRadius="100px"
         onClick={onToggle}

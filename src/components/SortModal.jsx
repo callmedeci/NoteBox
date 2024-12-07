@@ -20,13 +20,13 @@ export default function SortModal({ onSort }) {
     >
       {sortOptions.map((sort, i) => (
         <button
-          className="flex items-center gap-[6px] font-open-sans-semibold bg-inherit
+          className="flex items-center gap-[6px] text-xs sm:text-sm md:text-base font-open-sans-semibold bg-inherit
            hover:bg-zinc-800 hover:text-rose-600 transition-colors duration-300 w-full p-3"
           key={i}
           value={sort}
           onClick={(e) => onSort(e.target?.value)}
         >
-          {UiIcons[sort]("size-6")}
+          {UiIcons[sort]("size-4 md:size-6")}
           By {sort}
         </button>
       ))}

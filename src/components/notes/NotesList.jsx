@@ -33,7 +33,7 @@ export default function NotesList({
 NotesList.propTypes = {
   notes: PropTypes.array,
   onRemove: PropTypes.func,
-  activeNote: PropTypes.number,
+  activeNote: PropTypes.string,
   setActiveNote: PropTypes.func,
   setIsNewNoteOpen: PropTypes.func,
   setIsOpenNoteColor: PropTypes.func,
