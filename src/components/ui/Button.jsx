@@ -25,7 +25,7 @@ export function Button({
       disabled={disabled}
       onClick={onClick}
       style={{ ...buttonStyle }}
-      className={`shadow font-open-sans-semibold flex items-center justify-center
+      className={`shadow font-open-sans-semibold flex items-center justify-center gap-2
         bg-zinc-900/50 transition-all duration-300 text-xs sm:text-sm md:text-base
         disabled:placeholder:text-zinc-600 disabled:opacity-50
         ${color}`}

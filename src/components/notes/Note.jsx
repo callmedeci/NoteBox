@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import EditNotesPanel from "./EditNotesPanel";
-import UiIcons from "../UiIcons";
+import UiIcons from "../ui/UiIcons";
 
 export default function Note({ note, onToggle, onRemove, isActive }) {
   return (

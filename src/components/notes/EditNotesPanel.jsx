@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import UiIcons from "../UiIcons";
-import { Button } from "../Button";
+import UiIcons from "../ui/UiIcons";
+import { Button } from "../ui/Button";
 
 export default function EditNotesPanel({ onRemove, note }) {
   function handleCopyText() {

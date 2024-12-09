@@ -1,17 +1,18 @@
-import { useEffect, useRef, useState } from "react";
-import PropTypes from "prop-types";
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
+import { useEffect, useState } from "react";
+import Header from "./components/layout/Header";
+import Main from "./components/layout/Main";
+import Footer from "./components/layout/Footer";
 import NotesList from "./components/notes/NotesList";
 import CreateNoteForm from "./components/notes/CreateNoteForm";
 import NoteColorPicker from "./components/notes/NoteColorPicker";
-import UiIcons from "./components/UiIcons";
-import { Button } from "./components/Button";
 import useLocalStorage from "./hooks/useLocalStorage";
-import useKey from "./hooks/useKey";
-import { popup } from "./components/swal/Popup";
-import SortModal from "./components/SortModal";
+import TypingAnimation from "./components/ui/TypingAnimation ";
+import Icon from "./components/ui/Icon";
+import UiIcons from "./components/ui/UiIcons";
+import Search from "./components/search/Search";
+import Sort from "./components/ui/Sort";
+import { Button } from "./components/ui/Button";
+import { popup } from "./components/ui/Popup";
 
 const popOptions = {
   title: <p>Clear All ?</p>,
@@ -114,7 +115,14 @@ export default function App() {
       </Header>
 
       <Main>
-        <section style={{ display: "flex", flexFlow: "row wrap" }} className="">
+        <section
+          style={{ display: "flex", flexFlow: "row wrap" }}
+          className={`w-full h-full min-h-96 ${
+            !isNewNoteOpen && notes.length < 1
+              ? "items-center justify-center"
+              : ""
+          }`}
+        >
           <NotesList
             activeNote={activeNote}
             setActiveNote={setActiveNote}
@@ -123,6 +131,7 @@ export default function App() {
             onRemove={handleRemoveNote}
             notes={sortedNotes}
           />
+          {!isNewNoteOpen && notes.length < 1 && <TypingAnimation />}
 
           {isNewNoteOpen && (
             <CreateNoteForm
@@ -157,61 +166,5 @@ export default function App() {
         />
       </Footer>
     </section>
-  );
-}
-
-function Search({ notes, query, setQuery }) {
-  const inputEl = useRef(null);
-
-  useKey("Escape", function () {
-    inputEl.current.blur();
-  });
-
-  return (
-    <input
-      disabled={notes.length < 1 && true}
-      type="text"
-      placeholder="Search..."
-      value={query}
-      ref={inputEl}
-      onChange={(e) => setQuery(e.target.value)}
-      className="px-5 py-3 rounded-2xl shadow bg-zinc-900/50 outline-none 
-      focus:-translate-y-1 focus:shadow-xl transition-all duration-300 
-    disabled:placeholder:text-zinc-600
-      disabled:opacity-50 w-[60%] md:w-max text-xs sm:text-sm md:text-base"
-    />
-  );
-}
-
-Search.propTypes = {
-  notes: PropTypes.array,
-  query: PropTypes.string,
-  setQuery: PropTypes.func,
-};
-
-function Icon() {
-  return (
-    <div className="flex items-center gap-1">
-      {UiIcons.inbox("size-7 md:size-10 text-rose-700")}
-      <span className="font-open-sans-semibold text-sm sm:text-base md:text-lg">
-        Notepad
-      </span>
-    </div>
-  );
-}
-
-function Sort({ onSort, isOpen, onToggle }) {
-  return (
-    <div className="relative flex flex-col items-center justify-center">
-      <Button
-        text="SORT BY"
-        icon={UiIcons.sort("size-4 md:size-6")}
-        padding="15px"
-        borderRadius="100px"
-        onClick={onToggle}
-      />
-
-      {isOpen && <SortModal onSort={onSort} />}
-    </div>
   );
 }

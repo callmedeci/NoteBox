@@ -1,7 +1,8 @@
-import { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import UiIcons from "./UiIcons";
-const sortOptions = ["title", "text", "date"];
+import { useEffect, useRef } from "react";
 
+const sortOptions = ["title", "text", "date"];
 export default function SortModal({ onSort }) {
   const modalEl = useRef(null);
 
@@ -33,3 +34,7 @@ export default function SortModal({ onSort }) {
     </div>
   );
 }
+
+SortModal.propTypes = {
+  onSort: PropTypes.func,
+};

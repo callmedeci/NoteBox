@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import UiIcons from "../UiIcons";
+import UiIcons from "../ui/UiIcons";
 
 export default function CreateNoteForm({ onCloseNewNote, onAdd, noteColor }) {
   const [title, setTitle] = useState("");
