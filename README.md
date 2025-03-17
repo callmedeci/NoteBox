@@ -1,8 +1,33 @@
-# React + Vite
+# NoteBox
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Create and manage unlimited notes with ease. NoteBox lets you jot down ideas, reminders, and thoughts effortlessly in a clean, simple interface. Write, save, and organize—no limits, just notes!
 
-Currently, two official plugins are available:
+## Features
+- **Unlimited Notes**: No restrictions on the number of notes you can create.
+- **Simple & Clean UI**: Minimalist design for a distraction-free experience.
+- **Organized & Fast**: Quickly save, edit, and manage your notes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/callmedeci/notebox.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd notebox
+   ```
+3. Install dependencies:
+   ```sh
+   npm install
+   ```
+4. Start the development server:
+   ```sh
+   npm run dev
+   ```
+
+## Tech Stack
+- **React 18**
+- **TailwindCSS**
+- **Vite**
+- **SweetAlert2**
